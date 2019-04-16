@@ -1,7 +1,7 @@
 #!/bin/bash
 export DISPLAY=:0 &
 sleep 1
-cd $HOME/voctomix-uom/voctomix/uom-scripts/ffmpeg/
+cd /opt/voctomix/uom-scripts/ffmpeg/
 #../../voctocore/voctocore.py -v &
 #PID=$!
 #echo "PID=$PID"
