@@ -7,8 +7,7 @@ fi
 
 ffmpeg -y -nostdin \
     -framerate $FRAMERATE -video_size hd$HEIGHT -thread_queue_size 1024 -i /dev/video0 \
-	-f alsa -thread_queue_size 1024 -i hw:0,0 \
-	-ac 2 \
+	-f lavfi -thread_queue_size 1024 -i anullsrc=r=48000 \
         -pix_fmt yuv420p \
 	-c:v rawvideo \
 	-c:a pcm_s16le \
