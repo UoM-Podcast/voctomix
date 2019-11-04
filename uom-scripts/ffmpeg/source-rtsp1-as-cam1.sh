@@ -6,8 +6,8 @@ if [ -f $confdir/config.sh ]; then
 fi
 
 ffmpeg -y -nostdin \
--rtsp_transport tcp -i rtsp://$CAM1_USER:$CAM1_PASS@$CAM1_IP:$CAM1_PORT/axis-media/media.amp?videocodec=h264 \
--f alsa -thread_queue_size 1024 -i hw:0,0 -ac 2 \
+-rtsp_transport tcp -use_wallclock_as_timestamps 1 -thread_queue_size 1024 -i rtsp://$CAM1_USER:$CAM1_PASS@$CAM1_IP:$CAM1_PORT/axis-media/media.amp?videocodec=h264 \
+-f alsa -thread_queue_size 1024 -itsoffset 0.250 -i hw:0,0 -ac 2 \
 -c:v rawvideo \
 -c:a pcm_s16le \
 -pix_fmt yuv420p \

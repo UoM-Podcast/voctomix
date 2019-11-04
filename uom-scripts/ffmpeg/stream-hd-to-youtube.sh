@@ -10,7 +10,8 @@ ffmpeg -y -nostdin \
 	-threads:0 0 \
 	-aspect 16:9 \
 	-c:v libx264 \
-	-maxrate:v 3000k -bufsize:v 8192k -crf 21 \
+        -tune zerolatency -vsync cfr -x264-params 'nal-hrd=cbr' -b:v 3000k -minrate:v 3000k \
+        -maxrate:v 3000k -bufsize:v 8192k -g 60 \
 	-pix_fmt yuv420p -profile:v main -g:v 25 \
 	-preset:v veryfast \
 	\
